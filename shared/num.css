@@ -240,3 +240,18 @@ html body.lp-num .n-calc-note b { color: #E3C27A; font-weight: 600; }
 html body.lp-num .n-num b.is-rolling { opacity: .55; }
 @media (prefers-reduced-motion: reduce) { html body.lp-num .n-pulse::after, html body.lp-num .n-calc-btn { animation: none; } }
 @media (max-width: 400px) { html body.lp-num .n-calc-k { letter-spacing: .1em; font-size: 12px; } }
+
+/* How I work with you: only the icon art glows, one after another, to hold the eye */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .nw-cards .nw-ic { animation: n-iconglow 4.8s ease-in-out infinite; }
+  html body.lp-num .nw-cards article:nth-child(2) .nw-ic { animation-delay: 1.2s; }
+  html body.lp-num .nw-cards article:nth-child(3) .nw-ic { animation-delay: 2.4s; }
+  html body.lp-num .nw-cards article:nth-child(4) .nw-ic { animation-delay: 3.6s; }
+  html body.lp-num .nw-cards .nw-ic svg { animation: n-iconart 4.8s ease-in-out infinite; animation-delay: inherit; }
+}
+@keyframes n-iconglow {
+  0%, 30%, 100% { box-shadow: 0 0 0 0 rgb(227 194 122 / 0); }
+  10% { box-shadow: 0 0 0 3px rgb(227 194 122 / .9), 0 0 22px 6px rgb(227 194 122 / .55); }
+  20% { box-shadow: 0 0 0 6px rgb(227 194 122 / 0), 0 0 14px 2px rgb(227 194 122 / .2); }
+}
+@keyframes n-iconart { 0%, 30%, 100% { color: inherit; filter: none; } 10% { color: #FFE7A8; filter: drop-shadow(0 0 4px rgb(255 231 168 / .9)); } }
