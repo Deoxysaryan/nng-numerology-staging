@@ -285,3 +285,6 @@ html body.lp-num .na-steps li.is-lit .na-ic svg { color: #8A5A12; stroke-width: 
 @keyframes n-artpulse { 0%, 100% { filter: drop-shadow(0 0 3px rgb(235 180 70 / .7)) drop-shadow(0 0 6px rgb(235 180 70 / .5)); } 50% { filter: drop-shadow(0 0 6px rgb(235 180 70 / 1)) drop-shadow(0 0 14px rgb(235 180 70 / .95)); } }
 @media (prefers-reduced-motion: reduce) { html body.lp-num .na-steps li.is-lit .na-ic svg { animation: none; } }
 html body.lp-num .nw-cards p { text-wrap: pretty; }
+html body.lp-num .nm { overflow: visible !important; }
+html body.lp-num .nm-copy { padding-bottom: 28px; }
+html body.lp-num .nq-sub { text-wrap: balance; }

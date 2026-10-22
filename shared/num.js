@@ -45,7 +45,7 @@ document.querySelectorAll('.no-grid li').forEach((li) => li.addEventListener('cl
   /* also step aside over the tiles, the promises and the questions, where they covered text and buttons */
   const seen = new Set();
   const io = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target))); document.body.classList.toggle('n-calc-in-view', seen.size > 0); }, { threshold: 0.2 });
-  document.querySelectorAll('.n-calc, .no-grid, .nw-cards, .fq2-list').forEach((el) => io.observe(el));
+  document.querySelectorAll('.n-calc, .no-grid, .nw-cards, .fq2-list, .n-creds').forEach((el) => io.observe(el));
 })();
 /* Motion: steps light up in turn; promises fade in; pain-card rail moves on phones like the Brainology cards. */
 (() => {
