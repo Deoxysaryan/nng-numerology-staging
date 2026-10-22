@@ -255,3 +255,19 @@ html body.lp-num .n-num b.is-rolling { opacity: .55; }
   20% { box-shadow: 0 0 0 6px rgb(227 194 122 / 0), 0 0 14px 2px rgb(227 194 122 / .2); }
 }
 @keyframes n-iconart { 0%, 30%, 100% { color: inherit; filter: none; } 10% { color: #FFE7A8; filter: drop-shadow(0 0 4px rgb(255 231 168 / .9)); } }
+
+/* Meet: three credentials */
+html body.lp-num .n-creds { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 18px 0 0 !important; padding: 0; list-style: none; }
+html body.lp-num .n-creds li { display: grid !important; gap: 2px; padding: 0 12px !important; border-left: 1px solid rgb(201 162 90 / .4); text-align: left !important; align-items: start !important; }
+html body.lp-num .n-creds li:first-child { padding-left: 0 !important; border-left: 0; }
+html body.lp-num .n-creds b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 26px; line-height: 1.1; color: #9A6C2E; }
+html body.lp-num .n-creds span { font-size: 12.5px !important; line-height: 1.35; color: #4E4E48; }
+@media (max-width: 760px) { html body.lp-num .n-creds b { font-size: 22px; } html body.lp-num .n-creds li { padding: 0 8px !important; } }
+html body.lp-num .nm-foot .n-creds { flex: 1 1 100%; width: 100%; max-width: 460px; }
+html body.lp-num .nm-foot .n-creds li span { display: block !important; width: auto !important; height: auto !important; border-radius: 0 !important; background: none !important; color: #4E4E48 !important; }
+html body.lp-num .nm-foot .n-creds li { flex-direction: column !important; }
+@media (max-width: 300px) { html body.lp-num .nm-photo { width: calc(100% - 10px) !important; max-width: calc(100% - 10px) !important; margin-inline: auto !important; } }
+/* pain cards: no gap between the quote and the answer; the button sits at the card foot */
+html body.lp-num .nq-cards article > .v4-after-txt { flex: none !important; }
+html body.lp-num .nq-cards article > .v4-me { margin-top: auto !important; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 14px; }

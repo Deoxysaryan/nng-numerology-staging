@@ -42,9 +42,10 @@
 document.querySelectorAll('.no-grid li').forEach((li) => li.addEventListener('click', (e) => { if (!e.target.closest('a')) li.querySelector('.no-go')?.click(); }));
 /* Floating buttons step aside while the birth-date tool is on screen (they covered the date box). */
 (() => {
-  const c = document.querySelector('.n-calc');
-  if (!c) return;
-  new IntersectionObserver((es) => document.body.classList.toggle('n-calc-in-view', es[0].isIntersecting), { threshold: 0.2 }).observe(c);
+  /* also step aside over the tiles, the promises and the questions, where they covered text and buttons */
+  const seen = new Set();
+  const io = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target))); document.body.classList.toggle('n-calc-in-view', seen.size > 0); }, { threshold: 0.2 });
+  document.querySelectorAll('.n-calc, .no-grid, .nw-cards, .fq2-list').forEach((el) => io.observe(el));
 })();
 /* Motion: steps light up in turn; promises fade in; pain-card rail moves on phones like the Brainology cards. */
 (() => {
