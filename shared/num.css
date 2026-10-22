@@ -48,3 +48,84 @@ html body.lp-num.n-top .v4-fabs { opacity: 0; pointer-events: none; }
 
 /* Hero heading keeps clear of the photo on desktop */
 @media (min-width: 901px) { html body.lp-num .nh2-copy h1 { max-width: 11.5em; } }
+
+/* ---- pass 2: less text, more visual ---- */
+html body.lp-num .n-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Meet: film, one line, CTA. No repeated stats */
+html body.lp-num .nm-copy .nm-lead { max-width: 520px; }
+
+/* Consultation options: no photo, six compact cards across the full width, whole card tappable */
+html body.lp-num .no-inner { grid-template-columns: 1fr; }
+html body.lp-num .no-main { text-align: center; }
+html body.lp-num .no-main .nh2-kicker { justify-content: center; }
+html body.lp-num .no-main .no-cta { margin-inline: auto; }
+html body.lp-num .no-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: left; }
+html body.lp-num .no-grid li { min-height: 0; padding: 18px 18px 18px; }
+html body.lp-num .no-grid .no-go::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+html body.lp-num .no-grid .no-what { font-size: 14px; margin-right: 40px; }
+@media (max-width: 760px) {
+  html body.lp-num .no-main { text-align: left; }
+  html body.lp-num .no-main .nh2-kicker { justify-content: flex-start; }
+  html body.lp-num .no-main .no-cta { margin-inline: 0; }
+  html body.lp-num .no-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html body.lp-num .no-grid li { padding: 14px 12px 50px; }
+  html body.lp-num .no-grid .no-what { font-size: 13px; margin-right: 0; }
+}
+
+/* Birth-date tool */
+html body.lp-num .n-calc { margin: 20px 0 22px; padding: 18px; border-radius: 20px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4ECDC; box-shadow: 0 30px 50px -34px rgb(16 38 26 / .7); }
+html body.lp-num .n-calc-k { margin: 0 0 12px; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-calc-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 0; }
+html body.lp-num .n-calc-in { flex: 1 1 180px; min-width: 0; min-height: 48px; padding: 0 14px; border: 1px solid rgb(227 194 122 / .5); border-radius: 12px; background: #FFFDF8; color: #10261A; font: inherit; font-size: 16px; }
+html body.lp-num .n-calc-btn { flex: 0 0 auto; min-height: 48px; }
+html body.lp-num .n-calc-err { margin: 6px 0 0; min-height: 0; font-size: 13px; color: #F2B8A0; }
+html body.lp-num .n-calc-err:empty { display: none; }
+html body.lp-num .n-calc-out { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; animation: n-in .5s ease both; }
+html body.lp-num .n-calc-out[hidden] { display: none; }
+html body.lp-num .n-num { display: grid; gap: 4px; padding: 14px; border-radius: 16px; background: rgb(255 253 248 / .08); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); }
+html body.lp-num .n-num b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 52px; line-height: 1; color: #E3C27A; }
+html body.lp-num .n-num span { font-size: 15px; font-weight: 600; color: #FFF; }
+html body.lp-num .n-num small { display: block; font-size: 12px; font-weight: 400; color: rgb(244 236 220 / .75); }
+html body.lp-num .n-num em { font-style: normal; font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-calc-note { grid-column: 1 / -1; margin: 4px 0 0; font-size: 14.5px; line-height: 1.5; color: rgb(244 236 220 / .85); }
+html body.lp-num .n-calc-cta { grid-column: 1 / -1; justify-self: start; text-decoration: none; }
+html body.lp-num .na-grid span.is-hit { box-shadow: 0 0 0 2px #C9A25A, 0 10px 24px -10px rgb(181 138 62 / .8); background: #FFF3D6; }
+@keyframes n-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+/* ---- pass 3: CTAs hug their label, one arrow each (same rule as Brainology) ---- */
+html body.lp-num :is(a.nm-cta, a.no-cta, a.nw-cta, a.nh2-cta) .nh2-arrow,
+html body.lp-num a.nw-cta > i { display: none !important; }
+@media (max-width: 760px) {
+  html body.lp-num :is(a.nm-cta, a.no-cta, a.nw-cta, a.nh2-cta, a.n-calc-cta) { width: auto !important; max-width: 100%; justify-content: flex-start !important; align-self: flex-start; white-space: nowrap; }
+  html body.lp-num a.nw-cta { min-height: 50px; font-size: 16px; padding: 5px 18px 5px 22px; }
+}
+/* narrowest phones: options section stays inside the screen */
+@media (max-width: 300px) { html body.lp-num .no-inner { width: calc(100% - 32px); } html body.lp-num .no-main .no-cta { white-space: normal; } }
+
+/* ---- pass 4: fewer boxes ---- */
+/* pain cards: the round icon was cut by the picture edge; the label above the heading already names the topic */
+html body.lp-num .nq-photo .nq-ic { display: none !important; }
+/* options: compact tiles, the whole tile is the link, no empty arrow row */
+@media (max-width: 760px) {
+  html body.lp-num .no-grid li { padding: 14px 12px 14px !important; }
+  html body.lp-num .no-grid .no-go { display: none; }
+  html body.lp-num .no-grid li { cursor: pointer; }
+}
+/* how I work with you: four short promises as an open icon list, not four boxes */
+html body.lp-num .nw-cards article { background: none !important; box-shadow: none !important; border: 0 !important; padding: 0 !important; min-height: 0 !important; gap: 12px; align-items: flex-start; }
+html body.lp-num .nw-cards { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px !important; }
+html body.lp-num .nw-cards .nw-go { display: none !important; }
+html body.lp-num .nw-cards h3 { margin: 0; }
+html body.lp-num .nw-cards p { margin: 2px 0 0; }
+
+/* ---- pass 5: approach steps as one slim three-step strip, not three tall boxes ---- */
+html body.lp-num .na-steps { position: relative; display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px !important; margin: 18px 0 0 !important; padding: 0 !important; counter-reset: none; }
+html body.lp-num .na-steps::before { content: ""; position: absolute; left: 16.6%; right: 16.6%; top: 24px; height: 1px; background: linear-gradient(90deg, #C9A25A, rgb(201 162 90 / .3)); }
+html body.lp-num .na-steps li { position: relative; display: flex !important; flex-direction: column; align-items: center; gap: 8px; min-height: 0 !important; padding: 0 !important; background: none !important; box-shadow: none !important; border: 0 !important; text-align: center; transform: none !important; }
+html body.lp-num .na-steps li::before, html body.lp-num .na-steps li::after { display: none !important; }
+html body.lp-num .na-steps .na-ic { position: relative; z-index: 1; width: 48px !important; height: 48px !important; margin: 0 !important; border-radius: 50%; background: #FFF8EA !important; box-shadow: 0 0 0 1px #C9A25A; }
+html body.lp-num .na-steps .na-tx { display: block; padding: 0 !important; border: 0 !important; }
+html body.lp-num .na-steps .na-tx::before, html body.lp-num .na-steps .na-tx::after { display: none !important; }
+html body.lp-num .na-steps .na-tx strong { display: block; font-size: 15px !important; line-height: 1.25; padding: 0 !important; border: 0 !important; }
+html body.lp-num .na-steps .na-tx small, html body.lp-num .na-steps .na-no, html body.lp-num .na-steps .bj-go { display: none !important; }
