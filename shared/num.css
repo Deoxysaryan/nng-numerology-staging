@@ -1,0 +1,50 @@
+/* Numerology LP v2: numerology-specific refinements over styles.css and v4.css. Same palette, same layout. */
+
+/* Hero: program word and form sit inside the original copy column */
+html body.lp-num .nh2-copy .v4-program { margin: 6px 0 4px; }
+html body.lp-num .nh2-copy h1 { max-width: 15em; }
+html body.lp-num .nh2-copy .v4-hf { margin-top: 20px; }
+
+/* Meet: introduction film in the original arch, her face never cropped */
+html body.lp-num .nm-arch.v4-film { position: absolute; background: #F3EBDD; aspect-ratio: auto; height: auto; }
+html body.lp-num .nm-arch.v4-film video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+html body.lp-num .nm-arch.v4-film.is-playing video { object-fit: contain; background: #10261A; }
+html body.lp-num .nm-arch .v4-film-play { position: absolute; left: 50% !important; right: auto !important; bottom: 18% !important; top: auto !important; transform: translateX(-50%) !important; translate: none !important; white-space: nowrap; z-index: 2; }
+html body.lp-num .nm-arch.is-playing .v4-film-play { display: none; }
+html body.lp-num .nm-copy .v4-meds { margin: 22px 0 18px; }
+
+/* Pain cards: taller emotional pictures that cross-fade from the pattern to the outcome */
+html body.lp-num .nq-sub { margin: 10px auto 0; max-width: 560px; font-size: var(--ts-lead, 16px); line-height: 1.6; color: #56635C; text-align: center; }
+html body.lp-num .nq-photo { height: auto; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; }
+html body.lp-num .nq-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+html body.lp-num .nq-photo .nq-after { opacity: 0; animation: n-fade 7s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 1.2s); }
+html body.lp-num .nq-photo em, html body.lp-num .nq-photo .nq-ic { z-index: 2; }
+html body.lp-num .nq-cards article { --i: 0; }
+html body.lp-num .nq-cards article > .v4-area { margin: 16px 14px 0; }
+html body.lp-num .nq-cards article > h3 { margin: 6px 14px 0; }
+html body.lp-num .nq-cards article > .v4-before, html body.lp-num .nq-cards article > .v4-after-txt { margin-left: 14px; margin-right: 14px; }
+html body.lp-num .nq-cards article > .v4-before { margin-top: 8px; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-top: 8px; flex: 1; }
+html body.lp-num .nq-cards article > .v4-me { align-self: flex-start; margin: 14px 14px 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4E2B8; font-weight: 600; font-size: 14.5px; text-decoration: none; }
+@keyframes n-fade { 0%, 38% { opacity: 0; } 48%, 88% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .nq-photo .nq-after { animation: none; } }
+@media (max-width: 760px) { html body.lp-num .nq-photo { aspect-ratio: 1 / 1; } }
+
+/* Consultation options: a full meaning line under each, no clipping */
+html body.lp-num .no-grid .no-what { margin: 6px 0 0; font-size: 13.5px; line-height: 1.45; color: #56635C; display: block; -webkit-line-clamp: unset; overflow: visible; white-space: normal; text-overflow: clip; }
+html body.lp-num .no-grid li { height: auto; }
+
+/* Client films: the summary line for a film without a spoken quote */
+html body.lp-num .cv5-say { margin: 6px 0 0; font-family: var(--display, Marcellus, serif); font-size: 16px; line-height: 1.45; color: #1F2A24; }
+
+/* Floating buttons stay out of the hero */
+html body.lp-num.n-top .v4-fabs { opacity: 0; pointer-events: none; }
+
+/* Four client films sit in one row on wide screens */
+@media (min-width: 1100px) { html body.lp-num .cv5-list > .cv5-card { flex: 0 0 calc((100% - 54px) / 4) !important; max-width: calc((100% - 54px) / 4) !important; } }
+
+/* Program name fits the narrowest phones */
+@media (max-width: 340px) { html body.lp-num .v4-program { font-size: 40px !important; } }
+
+/* Hero heading keeps clear of the photo on desktop */
+@media (min-width: 901px) { html body.lp-num .nh2-copy h1 { max-width: 11.5em; } }
