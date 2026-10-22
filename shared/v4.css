@@ -705,3 +705,41 @@ html body.lp-v4 .v4-loopfilm.is-playing .v4-loop-play { opacity: 0; pointer-even
 /* Phones: floating buttons step aside while the reader scrolls down, and return when they scroll up */
 @media (max-width: 760px) { html body.lp-v4.v4-tick-hide .v4-fabs { opacity: 0 !important; pointer-events: none !important; transform: translateY(12px); } html body.lp-v4 .v4-fabs { transition: opacity .25s ease, transform .25s ease; } }
 html body.lp-v4.v4-top .v4-fabs { opacity: 0 !important; pointer-events: none !important; }
+
+/* Find your loop: free 4-tap tool */
+html body.lp-v4 .v4-fl { padding: 56px 0; background: linear-gradient(180deg, #F8F1E4, #F3E9D6); }
+html body.lp-v4 .v4-fl-inner { display: grid; gap: 22px; max-width: 720px; }
+html body.lp-v4 .v4-fl-k { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #9A6C2E; }
+html body.lp-v4 .v4-fl-head h2 { margin: 10px 0 0; }
+html body.lp-v4 .v4-fl-card { position: relative; overflow: hidden; padding: 20px 18px 22px; border-radius: 22px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4ECDC; box-shadow: 0 0 0 1px rgb(227 194 122 / .35), 0 34px 60px -34px rgb(16 38 26 / .8); }
+html body.lp-v4 .v4-fl-card::before { content: ""; position: absolute; right: -70px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(closest-side, rgb(227 194 122 / .2), transparent); pointer-events: none; }
+html body.lp-v4 .v4-fl-top { display: flex; align-items: center; gap: 12px; }
+html body.lp-v4 .v4-fl-step { margin: 0; font-size: 13px; color: rgb(244 236 220 / .8); white-space: nowrap; }
+html body.lp-v4 .v4-fl-step b { color: #E3C27A; font-size: 16px; }
+html body.lp-v4 .v4-fl-dots { display: flex; gap: 6px; flex: 1; margin: 0; padding: 0; list-style: none; }
+html body.lp-v4 .v4-fl-dots li { flex: 1; height: 4px; border-radius: 4px; background: rgb(244 236 220 / .2); transition: background .3s; }
+html body.lp-v4 .v4-fl-dots li.is-on { background: #E3C27A; }
+html body.lp-v4 .v4-fl-back { min-height: 44px; padding: 0 6px; border: 0; background: none; color: #E3C27A; font: 600 14px/1 var(--body, inherit); cursor: pointer; }
+html body.lp-v4 .v4-fl-q { margin: 14px 0 12px; font-family: var(--display, Marcellus, serif); font-size: 23px; line-height: 1.25; color: #FFF; }
+html body.lp-v4 .v4-fl-opts { display: grid; gap: 10px; }
+html body.lp-v4 .v4-fl-opts button { display: flex; align-items: center; min-height: 52px; padding: 12px 16px; border: 1px solid rgb(227 194 122 / .45); border-radius: 14px; background: rgb(255 253 248 / .07); color: #FFF; font: 500 15.5px/1.35 var(--body, inherit); text-align: left; cursor: pointer; animation: v4-fl-in .35s ease both; transition: background .2s, border-color .2s; }
+html body.lp-v4 .v4-fl-opts button:nth-child(2) { animation-delay: .05s; } html body.lp-v4 .v4-fl-opts button:nth-child(3) { animation-delay: .1s; } html body.lp-v4 .v4-fl-opts button:nth-child(4) { animation-delay: .15s; }
+html body.lp-v4 .v4-fl-opts button:hover, html body.lp-v4 .v4-fl-opts button:focus-visible { background: rgb(227 194 122 / .18); border-color: #E3C27A; }
+@keyframes v4-fl-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+html body.lp-v4 .v4-fl-res { animation: v4-fl-in .5s ease both; }
+html body.lp-v4 .v4-fl-rk { margin: 0 0 4px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-v4 .v4-fl-name { margin: 0 0 14px; font-family: var(--display, Marcellus, serif); font-size: 30px; line-height: 1.1; color: #FFF; }
+html body.lp-v4 .v4-fl-chain { position: relative; display: grid; gap: 10px; margin: 0 0 16px; padding: 0 0 0 22px; list-style: none; }
+html body.lp-v4 .v4-fl-chain::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; border-left: 2px dashed rgb(227 194 122 / .55); }
+html body.lp-v4 .v4-fl-chain li { position: relative; font-size: 15px; line-height: 1.35; color: #FFF; animation: v4-fl-in .4s ease both; animation-delay: calc(var(--i) * .15s); }
+html body.lp-v4 .v4-fl-chain li::before { content: ""; position: absolute; left: -21px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: #E3C27A; box-shadow: 0 0 0 3px #173A2B; }
+html body.lp-v4 .v4-fl-chain li small { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgb(244 236 220 / .7); }
+html body.lp-v4 .v4-fl-try { padding: 14px; border-radius: 16px; background: rgb(255 253 248 / .08); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); }
+html body.lp-v4 .v4-fl-pt { margin: 4px 0 4px; font-family: var(--display, Marcellus, serif); font-size: 19px; color: #FFF; }
+html body.lp-v4 .v4-fl-try p:last-child { margin: 0; font-size: 14.5px; line-height: 1.5; color: rgb(244 236 220 / .88); }
+html body.lp-v4 .v4-fl-note { margin: 14px 0 16px; font-size: 14.5px; line-height: 1.5; color: rgb(244 236 220 / .88); }
+html body.lp-v4 .v4-fl-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+html body.lp-v4 .v4-fl-cta { text-decoration: none; }
+html body.lp-v4 .v4-fl-again { min-height: 44px; border: 0; background: none; color: #E3C27A; font: 600 14px/1 var(--body, inherit); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (max-width: 760px) { html body.lp-v4 .v4-fl { padding: 44px 0; } html body.lp-v4 .v4-fl-q { font-size: 21px; } }
+@media (prefers-reduced-motion: reduce) { html body.lp-v4 .v4-fl-opts button, html body.lp-v4 .v4-fl-res, html body.lp-v4 .v4-fl-chain li { animation: none; } }

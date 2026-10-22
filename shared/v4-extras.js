@@ -102,7 +102,7 @@
 (() => {
   const seen = new Set();
   const io = new IntersectionObserver((es) => { es.forEach((e) => { e.isIntersecting ? seen.add(e.target) : seen.delete(e.target); }); document.body.classList.toggle('v4-form-in', seen.size > 0); }, { threshold: 0.05 });
-  document.querySelectorAll('#en-inline, #v4-hf, #v4-bf, .v4-quotes, .v4-proof-stats, .bk2-trust, .v4-ring, .v4-loopfilm, .v4-cards, .nq-cards, .pr4-grid, .cv5-list, .wy4-cards, .nw-cards, .no-grid, .n-calc, .n-creds, .fq2-list, .fq2-ask, .m5-actions').forEach((f) => io.observe(f));
+  document.querySelectorAll('#en-inline, #v4-hf, #v4-bf, .v4-quotes, .v4-proof-stats, .bk2-trust, .v4-ring, .v4-loopfilm, .v4-cards, .nq-cards, .pr4-grid, .cv5-list, .wy4-cards, .nw-cards, .no-grid, .n-calc, .n-creds, .fq2-list, .fq2-ask, .m5-actions, .v4-fl-card').forEach((f) => io.observe(f));
 })();
 /* Meet ring: lights the four areas one after another every 2.6 s and shows that area's line in the centre. Tap an area to jump to it. */
 (() => {
