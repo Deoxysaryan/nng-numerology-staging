@@ -171,3 +171,56 @@ html body.lp-num .nw ~ .en2 .en2-head { display: block !important; }
 html body.lp-num .nw { padding-bottom: 40px; }
 @media (min-width: 761px) { html body.lp-num .nh2 h1 { white-space: normal !important; max-width: 12em; } }
 @media (min-width: 761px) { html body.lp-num .nm-arch .v4-film-play { bottom: 30% !important; } }
+
+/* ======== Mobile audit fixes (iOS + Android) ======== */
+/* Floating buttons: smaller, so they cover less of each card */
+@media (max-width: 760px) {
+  html body.lp-num .v4-fabs { right: 12px; gap: 10px; bottom: calc(14px + env(safe-area-inset-bottom)); }
+  html body.lp-num .v4-fab { width: 48px; height: 48px; }
+  html body.lp-num .v4-fab-wa svg { width: 26px; height: 26px; }
+  html body.lp-num .v4-fab-form svg { width: 22px; height: 22px; }
+}
+html body.lp-num.n-calc-in-view .v4-fabs { opacity: 0; pointer-events: none; }
+html body.lp-num .v4-fabs { transition: opacity .25s ease; }
+
+/* Readable small print: nothing under 12px */
+html body.lp-num .nh2-name small, html body.lp-num .nm-photo figcaption small, html body.lp-num .nw-photo figcaption small { font-size: 11px !important; letter-spacing: .16em !important; }
+@media (max-width: 760px) {
+  html body.lp-num .nm-foot li { font-size: 12px !important; }
+  html body.lp-num .nh2-name small { font-size: 10px !important; }
+}
+html body.lp-num .nm-photo figcaption { max-width: calc(100% - 12px); }
+
+/* Pain cards: the decorative dial and moon sat on top of the heading on phones */
+@media (max-width: 760px) {
+  html body.lp-num .nq-dial, html body.lp-num .nq-moon, html body.lp-num .nq .nq-s1, html body.lp-num .nq .nq-s2 { display: none !important; }
+  html body.lp-num .nq-cards article > h3 { margin-top: 16px; }
+}
+
+/* Birth-date tool: visible label, iOS-safe date box */
+html body.lp-num .n-calc-lbl { flex: 1 1 100%; margin: 0 0 -2px; font-size: 13px; color: rgb(244 236 220 / .8); }
+html body.lp-num .n-calc-in { -webkit-appearance: none; appearance: none; display: block; text-align: left; line-height: 46px; }
+html body.lp-num .n-calc-in::-webkit-date-and-time-value { text-align: left; }
+html body.lp-num .n-calc-in::-webkit-calendar-picker-indicator { opacity: .7; }
+
+/* Motion: the three steps light up one after another while on screen */
+html body.lp-num .na-steps li .na-ic { transition: background .4s, box-shadow .4s, color .4s; }
+html body.lp-num .na-steps li.is-lit .na-ic { background: linear-gradient(160deg, #1D4A37, #123A2B) !important; color: #E3C27A; box-shadow: 0 0 0 2px #C9A25A, 0 10px 22px -10px rgb(16 38 26 / .6); }
+html body.lp-num .na-steps li.is-lit strong { color: #1D4A37; }
+/* Motion: promises arrive one by one */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .nw-cards article { opacity: 0; translate: 0 10px; transition: opacity .6s ease, translate .6s ease; }
+  html body.lp-num .nw-cards.is-in article { opacity: 1; translate: 0 0; }
+  html body.lp-num .nw-cards.is-in article:nth-child(2) { transition-delay: .15s; }
+  html body.lp-num .nw-cards.is-in article:nth-child(3) { transition-delay: .3s; }
+  html body.lp-num .nw-cards.is-in article:nth-child(4) { transition-delay: .45s; }
+}
+@media (max-width: 400px) {
+  html body.lp-num .nh2-copy .nh2-kicker { flex-wrap: wrap; row-gap: 2px; }
+  html body.lp-num .nh2-copy .nh2-kicker em { flex-basis: 100%; padding-left: 22px; }
+  html body.lp-num .nq h2 { font-size: 27px !important; }
+  html body.lp-num .nq h2 br { display: none; }
+  html body.lp-num .nq h2 em { display: block; }
+}
+html body.lp-num :is(h1, h2, h3) { text-wrap: balance; }
+@media (max-width: 400px) { html body.lp-num .nq h2 { max-width: none !important; font-size: 26px !important; } }

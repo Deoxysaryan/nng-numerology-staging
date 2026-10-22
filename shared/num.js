@@ -30,3 +30,37 @@
 })();
 /* Option tiles: tapping anywhere on a tile opens the form with that topic chosen. */
 document.querySelectorAll('.no-grid li').forEach((li) => li.addEventListener('click', (e) => { if (!e.target.closest('a')) li.querySelector('.no-go')?.click(); }));
+/* Floating buttons step aside while the birth-date tool is on screen (they covered the date box). */
+(() => {
+  const c = document.querySelector('.n-calc');
+  if (!c) return;
+  new IntersectionObserver((es) => document.body.classList.toggle('n-calc-in-view', es[0].isIntersecting), { threshold: 0.2 }).observe(c);
+})();
+/* Motion: steps light up in turn; promises fade in; pain-card rail moves on phones like the Brainology cards. */
+(() => {
+  'use strict';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const steps = [...document.querySelectorAll('.na-steps li')];
+  if (steps.length) {
+    let i = 0, vis = false;
+    new IntersectionObserver((es) => { vis = es[0].isIntersecting; }, { threshold: 0.4 }).observe(steps[0].parentElement);
+    const lit = () => steps.forEach((s, k) => s.classList.toggle('is-lit', k === i));
+    lit();
+    if (!reduce) setInterval(() => { if (vis) { i = (i + 1) % steps.length; lit(); } }, 1800);
+  }
+  const nw = document.querySelector('.nw-cards');
+  if (nw) new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { nw.classList.add('is-in'); o.disconnect(); } }, { threshold: 0.25 }).observe(nw);
+  const rail = document.querySelector('.nq-cards');
+  if (rail && !reduce) {
+    let paused = 0, vis = false;
+    ['pointerdown', 'touchstart', 'wheel'].forEach((ev) => rail.addEventListener(ev, () => { paused = Date.now() + 8000; }, { passive: true }));
+    new IntersectionObserver((es) => { vis = es[0].isIntersecting; }, { threshold: 0.6 }).observe(rail);
+    setInterval(() => {
+      if (!vis || Date.now() < paused || rail.scrollWidth <= rail.clientWidth + 4) return;
+      const x = rail.scrollLeft, kids = [...rail.children];
+      const next = kids.find((c) => c.offsetLeft - rail.offsetLeft > x + 8);
+      const end = x + rail.clientWidth >= rail.scrollWidth - 8;
+      rail.scrollTo({ left: end || !next ? 0 : next.offsetLeft - rail.offsetLeft - (rail.clientWidth - next.clientWidth) / 2, behavior: 'smooth' });
+    }, 7000);
+  }
+})();
