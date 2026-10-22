@@ -288,3 +288,42 @@ html body.lp-num .nw-cards p { text-wrap: pretty; }
 html body.lp-num .nm { overflow: visible !important; }
 html body.lp-num .nm-copy { padding-bottom: 28px; }
 html body.lp-num .nq-sub { text-wrap: balance; }
+
+/* Lo Shu figure on phones: the figure is scaled down to fit, so its legend and card labels are drawn larger inside it */
+@media (max-width: 760px) {
+  html body.lp-num .na-legend { top: 548px !important; height: auto !important; padding: 16px 8px !important; }
+  html body.lp-num .na-legend li { flex-direction: column !important; justify-content: flex-start !important; gap: 8px !important; padding: 0 6px !important; font-size: 30px !important; text-align: center; }
+  html body.lp-num .na-legend li i { width: 54px !important; height: 54px !important; }
+  html body.lp-num .na-legend li i svg { width: 28px !important; height: 28px !important; }
+  html body.lp-num .na-legend li span { justify-items: center; }
+  html body.lp-num .na-legend li small { font-size: 22px !important; margin-top: 2px; }
+  html body.lp-num .na-card strong { font-size: 24px !important; }
+  html body.lp-num .na-figure { margin-bottom: calc(80px * var(--k)) !important; }
+}
+@media (max-width: 760px) {
+  html body.lp-num .na-figure { height: calc(735px * var(--k)) !important; margin-bottom: 0 !important; }
+  html body.lp-num .na-legend li::before { display: none !important; }
+  html body.lp-num .na-card strong { font-size: 19px !important; }
+}
+@media (max-width: 760px) {
+  html body.lp-num .na-card strong { font-size: 21px !important; line-height: 1.1; white-space: normal !important; }
+  html body.lp-num .na-card { height: 150px !important; padding-right: 12px !important; }
+  html body.lp-num .na-legend li small { font-size: 24px !important; }
+}
+@media (max-width: 760px) { html body.lp-num .na-legend li small { font-size: 22px !important; white-space: nowrap; } html body.lp-num .na-figure { height: calc(750px * var(--k)) !important; } }
+
+/* Birth-date tool: colours and day */
+html body.lp-num .n-calc-lbl span { color: rgb(244 236 220 / .55); }
+html body.lp-num .n-extra { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: 10px; }
+html body.lp-num .n-extra > div { padding: 14px; border-radius: 16px; background: rgb(255 253 248 / .08); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); }
+html body.lp-num .n-x-k { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-col ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; margin: 0; padding: 0; list-style: none; }
+html body.lp-num .n-col li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #FFF; line-height: 1.2; }
+html body.lp-num .n-col li i { flex: none; width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgb(255 255 255 / .6); }
+html body.lp-num .n-day b { display: block; font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 24px; line-height: 1.1; color: #FFF; }
+html body.lp-num .n-day small { display: block; margin-top: 6px; font-size: 12px; line-height: 1.35; color: rgb(244 236 220 / .75); }
+@media (max-width: 340px) { html body.lp-num .n-extra { grid-template-columns: 1fr; } }
+html body.lp-num .n-extra { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; min-width: 0; }
+html body.lp-num .n-extra > div { min-width: 0; }
+html body.lp-num .n-col ul { grid-template-columns: 1fr !important; gap: 7px; }
+html body.lp-num .n-col li { white-space: nowrap; }

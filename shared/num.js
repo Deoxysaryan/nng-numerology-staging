@@ -23,6 +23,22 @@
     const bh = red((d + m + y).split('').reduce((a, c) => a + Number(c), 0));
     const bm = box.querySelector('[data-mul]'), bb = box.querySelector('[data-bh]');
     box.querySelector('[data-mulp]').textContent = P[mul]; box.querySelector('[data-bhp]').textContent = P[bh];
+    /* Colours and day by ruling planet (traditional Vedic associations). Colours: mulank first, then bhagyank, up to four. Day: from the mulank. */
+    const C = { 1: [['Gold', '#D4A63A'], ['Orange', '#E8822E'], ['Yellow', '#F2C94C'], ['Copper', '#B5693A']],
+      2: [['White', '#FFFFFF'], ['Cream', '#F3E6C8'], ['Silver', '#C9CED6'], ['Light green', '#A8D5A2']],
+      3: [['Yellow', '#F2C94C'], ['Saffron', '#F4A23A'], ['Purple', '#7A4E9B'], ['Pink', '#E79AB4']],
+      4: [['Grey', '#8E9196'], ['Electric blue', '#2F6FE0'], ['Khaki', '#B9A97A'], ['Light blue', '#9CC3E8']],
+      5: [['Green', '#3D9A5B'], ['Light green', '#A8D5A2'], ['Light grey', '#C7CACE'], ['White', '#FFFFFF']],
+      6: [['White', '#FFFFFF'], ['Pink', '#E79AB4'], ['Light blue', '#9CC3E8'], ['Cream', '#F3E6C8']],
+      7: [['Light yellow', '#F6E7A1'], ['Light green', '#A8D5A2'], ['White', '#FFFFFF'], ['Grey', '#8E9196']],
+      8: [['Dark blue', '#23396B'], ['Black', '#1C1C1C'], ['Purple', '#5B3A7A'], ['Dark grey', '#4A4D52']],
+      9: [['Red', '#C7372F'], ['Maroon', '#7A1F2B'], ['Coral', '#EE7A62'], ['Pink', '#E79AB4']] };
+    const D = { 1: 'Sunday', 2: 'Monday', 3: 'Thursday', 4: 'Saturday', 5: 'Wednesday', 6: 'Friday', 7: 'Monday', 8: 'Saturday', 9: 'Tuesday' };
+    const cols = [];
+    [...C[mul], ...C[bh]].forEach(([n, c]) => { if (cols.length < 4 && !cols.some((x) => x[0] === n)) cols.push([n, c]); });
+    box.querySelector('[data-cols]').innerHTML = cols.map(([n, c]) => `<li><i style="background:${c}"></i>${n}</li>`).join('');
+    box.querySelector('[data-day]').textContent = D[mul];
+    box.querySelector('[data-dayfrom]').textContent = 'Ruled by ' + P[mul] + ', your mulank planet';
     out.hidden = false; box.classList.add('is-done');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { bm.textContent = mul; bb.textContent = bh; }
     else {
