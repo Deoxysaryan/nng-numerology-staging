@@ -272,3 +272,15 @@ html body.lp-num .nq-cards article > .v4-after-txt { flex: none !important; }
 html body.lp-num .nq-cards article > .v4-me { margin-top: auto !important; }
 html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 14px; }
 @media (max-width: 760px) { html body.lp-num .nw-cards .nw-ic { width: 40px !important; height: 40px !important; } html body.lp-num .nw-cards .nw-ic svg { width: 22px !important; height: 22px !important; } }
+
+/* Steps: circles never clipped; only the icon art lights up */
+html body.lp-num .na-steps, html body.lp-num .na-steps li { overflow: visible !important; }
+html body.lp-num .na-steps { padding-top: 6px !important; }
+html body.lp-num .na-steps li.is-lit .na-ic { background: #FFF8EA !important; color: inherit; box-shadow: 0 0 0 1.5px #C9A25A !important; }
+html body.lp-num .na-steps .na-ic svg { transition: color .4s, filter .4s, transform .4s; }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #B8862F; filter: drop-shadow(0 0 3px rgb(227 194 122 / .95)) drop-shadow(0 0 8px rgb(227 194 122 / .7)); transform: scale(1.12); }
+html body.lp-num .na-steps li.is-lit strong { color: #9A6C2E; }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #C9962F; stroke-width: 2; filter: drop-shadow(0 0 4px rgb(240 200 110 / 1)) drop-shadow(0 0 12px rgb(240 200 110 / .85)); transform: scale(1.25); }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #8A5A12; stroke-width: 2.2; filter: drop-shadow(0 0 5px rgb(235 180 70 / 1)) drop-shadow(0 0 10px rgb(235 180 70 / .9)); transform: scale(1.3); animation: n-artpulse 1.8s ease-in-out infinite; }
+@keyframes n-artpulse { 0%, 100% { filter: drop-shadow(0 0 3px rgb(235 180 70 / .7)) drop-shadow(0 0 6px rgb(235 180 70 / .5)); } 50% { filter: drop-shadow(0 0 6px rgb(235 180 70 / 1)) drop-shadow(0 0 14px rgb(235 180 70 / .95)); } }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .na-steps li.is-lit .na-ic svg { animation: none; } }
