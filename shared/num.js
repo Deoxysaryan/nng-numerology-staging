@@ -21,9 +21,19 @@
     const [y, m, d] = v.split('-');
     const mul = red(Number(d));
     const bh = red((d + m + y).split('').reduce((a, c) => a + Number(c), 0));
-    box.querySelector('[data-mul]').textContent = mul; box.querySelector('[data-mulp]').textContent = P[mul];
-    box.querySelector('[data-bh]').textContent = bh; box.querySelector('[data-bhp]').textContent = P[bh];
-    out.hidden = false;
+    const bm = box.querySelector('[data-mul]'), bb = box.querySelector('[data-bh]');
+    box.querySelector('[data-mulp]').textContent = P[mul]; box.querySelector('[data-bhp]').textContent = P[bh];
+    out.hidden = false; box.classList.add('is-done');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { bm.textContent = mul; bb.textContent = bh; }
+    else {
+      /* the two numbers roll through 1 to 9 before they settle */
+      let t = 0; bm.classList.add('is-rolling'); bb.classList.add('is-rolling');
+      const roll = setInterval(() => {
+        t++; bm.textContent = (t % 9) + 1; bb.textContent = ((t + 4) % 9) + 1;
+        if (t > 12) { clearInterval(roll); bm.textContent = mul; bb.textContent = bh; bm.classList.remove('is-rolling'); bb.classList.remove('is-rolling'); }
+      }, 60);
+    }
+    out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     document.querySelectorAll('.na-grid span').forEach((s) => s.classList.toggle('is-hit', [mul, bh].includes(parseInt(s.textContent, 10))));
     window.dataLayer?.push({ event: 'numerology_tool', root_number: mul, destiny_number: bh });
   });

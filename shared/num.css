@@ -224,3 +224,19 @@ html body.lp-num .na-steps li.is-lit strong { color: #1D4A37; }
 }
 html body.lp-num :is(h1, h2, h3) { text-wrap: balance; }
 @media (max-width: 400px) { html body.lp-num .nq h2 { max-width: none !important; font-size: 26px !important; } }
+
+/* ---- Birth-date tool: more pull ---- */
+html body.lp-num .n-calc { position: relative; overflow: hidden; padding: 22px 18px 20px; box-shadow: 0 0 0 1px rgb(227 194 122 / .35), 0 34px 60px -34px rgb(16 38 26 / .8); }
+html body.lp-num .n-calc::before { content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(closest-side, rgb(227 194 122 / .22), transparent); pointer-events: none; }
+html body.lp-num .n-calc-k { display: flex; align-items: center; gap: 10px; }
+html body.lp-num .n-pulse { position: relative; flex: none; width: 10px; height: 10px; border-radius: 50%; background: #E3C27A; }
+html body.lp-num .n-pulse::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid #E3C27A; opacity: 0; animation: n-ping 1.8s ease-out infinite; }
+@keyframes n-ping { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(1.4); opacity: 0; } }
+html body.lp-num .n-calc-btn { gap: 10px; animation: n-glow 2.4s ease-in-out infinite; }
+html body.lp-num .n-calc.is-done .n-calc-btn { animation: none; }
+@keyframes n-glow { 0%, 100% { box-shadow: 0 0 0 0 rgb(227 194 122 / .55); } 50% { box-shadow: 0 0 0 8px rgb(227 194 122 / 0); } }
+@media (max-width: 760px) { html body.lp-num .n-calc-btn { flex: 1 1 100%; justify-content: center !important; width: 100% !important; } }
+html body.lp-num .n-calc-note b { color: #E3C27A; font-weight: 600; }
+html body.lp-num .n-num b.is-rolling { opacity: .55; }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .n-pulse::after, html body.lp-num .n-calc-btn { animation: none; } }
+@media (max-width: 400px) { html body.lp-num .n-calc-k { letter-spacing: .1em; font-size: 12px; } }
