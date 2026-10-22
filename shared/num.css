@@ -129,3 +129,45 @@ html body.lp-num .na-steps .na-tx { display: block; padding: 0 !important; borde
 html body.lp-num .na-steps .na-tx::before, html body.lp-num .na-steps .na-tx::after { display: none !important; }
 html body.lp-num .na-steps .na-tx strong { display: block; font-size: 15px !important; line-height: 1.25; padding: 0 !important; border: 0 !important; }
 html body.lp-num .na-steps .na-tx small, html body.lp-num .na-steps .na-no, html body.lp-num .na-steps .bj-go { display: none !important; }
+
+/* ---- pass 6: How I work with you on phones, her photo sits beside the four promises ---- */
+@media (max-width: 760px) {
+  html body.lp-num .nw-inner { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important; gap: 14px 14px !important; align-items: center; }
+  html body.lp-num .nw-copy { display: contents; }
+  html body.lp-num .nw-copy > .nh2-kicker, html body.lp-num .nw-copy > h2 { grid-column: 1 / -1; }
+  html body.lp-num .nw-copy > h2 { margin-bottom: 4px; }
+  html body.lp-num .nw-photo { grid-column: 1; grid-row: 3; width: 100% !important; height: 300px !important; margin: 0 !important; }
+  html body.lp-num .nw-photo .nw-panel { width: 60%; bottom: 0; }
+  html body.lp-num .nw-photo .nw-arch { left: 8%; right: 0; top: 14px; bottom: 0; border-radius: 120px 120px 18px 18px; box-shadow: 0 0 0 4px #FFFCF6, 0 0 0 5px #C9A25A, 0 24px 40px -26px rgb(60 50 30 / .6); }
+  html body.lp-num .nw-photo > svg, html body.lp-num .nw-photo figcaption { display: none !important; }
+  html body.lp-num .nw-cards { grid-column: 2; grid-row: 3; grid-template-columns: 1fr !important; gap: 14px !important; margin: 0 !important; }
+  html body.lp-num .nw-cards article { gap: 10px; }
+  html body.lp-num .nw-cards .nw-ic { flex: none; width: 34px !important; height: 34px !important; }
+  html body.lp-num .nw-cards .nw-ic > i { display: none; }
+  html body.lp-num .nw-cards .nw-ic svg { width: 17px; height: 17px; }
+  html body.lp-num .nw-cards h3 { font-size: 15.5px !important; line-height: 1.2; }
+  html body.lp-num .nw-cards p { font-size: 13px !important; line-height: 1.35; }
+}
+
+/* ---- pass 7: structure for phones ---- */
+@media (max-width: 760px) {
+  /* hero: shorter photo so "Numerology", the question and the form start on the first screen */
+  html body.lp-num .nh2-visual { height: min(78vw, 310px) !important; }
+  html body.lp-num .nh2-photo img { object-position: 46% 8% !important; }
+  html body.lp-num .nh2-ring { top: 36% !important; width: 88vw !important; }
+  html body.lp-num .nh2-grid { bottom: 54px !important; }
+  html body.lp-num .nh2-name { bottom: 8px !important; }
+  html body.lp-num .nh2-t2 { display: none; }
+  /* the four hero facts repeat the fact strip above, so phones skip them */
+  html body.lp-num .nh2-feats { display: none !important; }
+  html body.lp-num .nh2-copy { padding-bottom: 26px !important; }
+  /* options: no big numbers, tiles read as one quick list */
+  html body.lp-num .no-grid em { display: none; }
+  html body.lp-num .no-grid .no-ic { width: 36px; height: 36px; }
+}
+/* enquiry: one dark block. The section's own heading leads into the form; the separate band above it is dropped */
+html body.lp-num .nw-band { display: none !important; }
+html body.lp-num .nw ~ .en2 .en2-head { display: block !important; }
+html body.lp-num .nw { padding-bottom: 40px; }
+@media (min-width: 761px) { html body.lp-num .nh2 h1 { white-space: normal !important; max-width: 12em; } }
+@media (min-width: 761px) { html body.lp-num .nm-arch .v4-film-play { bottom: 30% !important; } }
