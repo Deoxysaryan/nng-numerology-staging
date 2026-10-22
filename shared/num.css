@@ -271,3 +271,4 @@ html body.lp-num .nm-foot .n-creds li { flex-direction: column !important; }
 html body.lp-num .nq-cards article > .v4-after-txt { flex: none !important; }
 html body.lp-num .nq-cards article > .v4-me { margin-top: auto !important; }
 html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 14px; }
+@media (max-width: 760px) { html body.lp-num .nw-cards .nw-ic { width: 40px !important; height: 40px !important; } html body.lp-num .nw-cards .nw-ic svg { width: 22px !important; height: 22px !important; } }
