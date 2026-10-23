@@ -33,7 +33,15 @@
     + '</ul><div class="v4-nav-foot"><a class="wa-btn" href="#enquire" data-source="menu">' + cfg.cta + '</a><p>Prefer to talk? <a href="tel:+919205511101">Call</a> or <a href="https://wa.me/919205511101" target="_blank" rel="noopener">WhatsApp</a></p></div>';
   document.body.append(bd, nav);
   let last = null;
+  let lockY = 0;
+  const lock = (on) => {
+    /* iOS ignores overflow:hidden on body, so pin the page in place while the menu is open */
+    const st = document.body.style;
+    if (on) { lockY = scrollY; st.position = 'fixed'; st.top = -lockY + 'px'; st.left = '0'; st.right = '0'; st.width = '100%'; document.documentElement.style.scrollBehavior = 'auto'; }
+    else if (st.position === 'fixed') { st.position = ''; st.top = ''; st.left = ''; st.right = ''; st.width = ''; scrollTo(0, lockY); document.documentElement.style.scrollBehavior = ''; }
+  };
   const open = (on) => {
+    if (on !== document.body.classList.contains('v4-nav-open')) lock(on);
     document.body.classList.toggle('v4-nav-open', on);
     btn.setAttribute('aria-expanded', String(on)); nav.setAttribute('aria-hidden', String(!on)); nav.inert = !on;
     if (on) { last = document.activeElement; nav.querySelector('.v4-nav-x').focus(); window.dataLayer?.push({ event: 'menu_open' }); }
