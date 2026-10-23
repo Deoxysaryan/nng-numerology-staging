@@ -334,3 +334,34 @@ html body.lp-num .nm-copy .v4-meds li { background: none !important; box-shadow:
 html body.lp-num .nm-copy .v4-meds li:last-child { border-bottom: 0 !important; }
 @media (min-width: 761px) { html body.lp-num .nm-copy .v4-meds ul { column-gap: 22px !important; } }
 html body.lp-num .n-num .n-trait { margin: 4px 0 0; font-size: 13.5px; line-height: 1.45; color: #FFF; }
+/* decision cards: no empty gap between the quote and the answer */
+html body.lp-num .nq-cards article > .v4-before { flex: none !important; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 16px !important; }
+/* Lo Shu figure: the entrance plays faster, so the grid, cards and legend are in place before the reader scrolls past */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .na-figure.is-seen .na-grid span { transition-delay: calc(0.2s + var(--o) * 0.06s) !important; }
+  html body.lp-num .na-figure.is-seen .na-glance { transition-delay: 0.5s !important; }
+  html body.lp-num .na-figure.is-seen :is(.na-card, .na-legend) { transition-delay: 0.8s !important; }
+  html body.lp-num .na-figure.is-seen .na-card-sign { transition-delay: 0.9s !important; }
+  html body.lp-num .na-figure.is-seen .na-legend { transition-delay: 1s !important; }
+}
+html body.lp-num .nq { overflow: clip; }
+/* decisions on desktop: the gold underline no longer strikes the subtitle; the leaves stay off the cards */
+html body.lp-num .nq-sub { margin-top: 24px !important; }
+@media (min-width: 761px) { html body.lp-num .nq :is(.nq-leaf-l, .nq-leaf-r) { display: none !important; } }
+/* tablet and small desktop: the photo starts where the copy ends, so the program name and form are never covered */
+@media (min-width: 761px) and (max-width: 1399px) {
+  html body.lp-num .nh2-copy { width: 52% !important; max-width: none !important; }
+  html body.lp-num .nh2-visual { left: 52% !important; right: 0 !important; width: auto !important; }
+  html body.lp-num .nh2-copy .v4-program { font-size: clamp(48px, 6.4vw, 80px) !important; }
+  html body.lp-num .nh2-copy h1 { font-size: clamp(30px, 3.6vw, 44px) !important; }
+}
+
+/* hero form in the narrower copy column: two fields per row, button full width; hero facts hidden where they would sit over the form */
+@media (min-width: 761px) and (max-width: 1399px) {
+  html body.lp-num .v4-hf-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) !important; }
+  html body.lp-num .v4-hf-row .v4-hf-btn { grid-column: 1 / -1; margin-top: 0 !important; width: 100%; justify-content: space-between; }
+  html body.lp-num .v4-hf-row3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body.lp-num .nh2-feats { display: none !important; }
+}
+@media (min-width: 761px) and (max-width: 900px) { html body.lp-num .v4-hf-row { grid-template-columns: minmax(0, 1fr) !important; } }
