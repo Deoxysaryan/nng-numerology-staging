@@ -327,3 +327,10 @@ html body.lp-num .n-extra { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
 html body.lp-num .n-extra > div { min-width: 0; }
 html body.lp-num .n-col ul { grid-template-columns: 1fr !important; gap: 7px; }
 html body.lp-num .n-col li { white-space: nowrap; }
+
+/* Meet: "what I read beyond the basics" as one open list, not five boxes */
+html body.lp-num .nm-copy .v4-meds ul { gap: 0 !important; }
+html body.lp-num .nm-copy .v4-meds li { background: none !important; box-shadow: none !important; border: 0 !important; border-bottom: 1px solid rgb(201 162 90 / .3) !important; border-radius: 0 !important; padding: 12px 0 !important; }
+html body.lp-num .nm-copy .v4-meds li:last-child { border-bottom: 0 !important; }
+@media (min-width: 761px) { html body.lp-num .nm-copy .v4-meds ul { column-gap: 22px !important; } }
+html body.lp-num .n-num .n-trait { margin: 4px 0 0; font-size: 13.5px; line-height: 1.45; color: #FFF; }

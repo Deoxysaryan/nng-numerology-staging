@@ -23,6 +23,18 @@
     const bh = red((d + m + y).split('').reduce((a, c) => a + Number(c), 0));
     const bm = box.querySelector('[data-mul]'), bb = box.querySelector('[data-bh]');
     box.querySelector('[data-mulp]').textContent = P[mul]; box.querySelector('[data-bhp]').textContent = P[bh];
+    /* who you are (mulank) and what life brings you (bhagyank), by ruling planet, as traditionally read */
+    const TM = { 1: 'Born to lead. You start things and like to stand out.', 2: 'Sensitive and intuitive. You read people and feel deeply.',
+      3: 'Wise and generous. You guide, teach and love to learn.', 4: 'Unconventional. You question rules and think differently.',
+      5: 'Quick and curious. You talk, trade and adapt fast.', 6: 'Warm and artistic. You love beauty, comfort and family.',
+      7: 'Deep and private. You look for meaning beneath the surface.', 8: 'Patient and serious. You build slowly, and what you build lasts.',
+      9: 'Brave and driven. You fight for what you want.' };
+    const TB = { 1: 'A life of firsts. Recognition comes when you lead.', 2: 'A life built through partnerships and trust.',
+      3: 'A life that grows through knowledge and guiding others.', 4: 'A life of sudden turns that reward fresh thinking.',
+      5: 'A life of movement, travel and change.', 6: 'A life centred on family, love and comfort.',
+      7: 'A life that turns inward, towards wisdom and faith.', 8: 'A life of hard-won success that comes with time.',
+      9: 'A life of courage, service and strong action.' };
+    box.querySelector('[data-mult]').textContent = TM[mul]; box.querySelector('[data-bht]').textContent = TB[bh];
     /* Colours and day by ruling planet (traditional Vedic associations). Colours: mulank first, then bhagyank, up to four. Day: from the mulank. */
     const C = { 1: [['Gold', '#D4A63A'], ['Orange', '#E8822E'], ['Yellow', '#F2C94C'], ['Copper', '#B5693A']],
       2: [['White', '#FFFFFF'], ['Cream', '#F3E6C8'], ['Silver', '#C9CED6'], ['Light green', '#A8D5A2']],
